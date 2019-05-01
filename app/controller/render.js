@@ -2,19 +2,22 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-08-16 16:41:41
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2018-12-17 21:41:43
+ * @Last Modified time: 2019-05-01 18:17:35
  */
+
 'use strict';
-
+const fs = require('fs');
 const Controller = require('egg').Controller;
-
+const publicKey = fs.readFileSync('./rsa_public_key.pem', 'utf8');
 class RenderController extends Controller {
-  async renderAdmin() {
-    await this.ctx.render('index.ejs');
-  }
 
-  async renderTestDemo() {
-    await this.ctx.render('test.ejs');
+  async renderLogin() {
+    await this.ctx.render(
+      'login/index.ejs',
+      {
+        encryptKey: publicKey.replace(/\n/g, '\\n'),
+      }
+    );
   }
 }
 

@@ -21,7 +21,7 @@
         "queryName": "_csrf"
       },
       "xframe": {
-        "enable": false,
+        "enable": true,
         "value": "SAMEORIGIN"
       },
       "hsts": {
@@ -137,7 +137,8 @@
       "dynamic": true,
       "preload": false,
       "buffer": false,
-      "maxFiles": 1000
+      "maxFiles": 1000,
+      "maxAge": 0
     },
     "view": {
       "root": "F:\\Node\\test_proxy_server\\app\\view",
@@ -221,7 +222,7 @@
         "node": ">=8.9.0"
       },
       "scripts": {
-        "start": "egg-scripts start --daemon --title=egg-server-LoshiServer",
+        "start": "ENABLE_NODE_LOG=YES egg-scripts start --port=7001 --daemon --title=test_proxy_server",
         "stop": "egg-scripts stop --title=egg-server-LoshiServer",
         "dev": "egg-bin dev",
         "debug": "egg-bin debug",
@@ -347,6 +348,10 @@
     "assets": {
       "publicPath": "/public/"
     },
+    "logview": {
+      "dir": "F:\\Node\\test_proxy_server\\logs"
+    },
+    "webpack": {},
     "coreMiddlewares": "~config~coreMiddleware",
     "appMiddlewares": "~config~middleware",
     "appMiddleware": "~config~middleware"

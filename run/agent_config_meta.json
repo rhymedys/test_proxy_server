@@ -48,7 +48,7 @@
       "cookieName": "F:\\Node\\test_proxy_server\\config\\config.default.js",
       "sessionName": "F:\\Node\\test_proxy_server\\config\\config.default.js",
       "headerName": "F:\\Node\\test_proxy_server\\config\\config.default.js",
-      "enable": "F:\\Node\\test_proxy_server\\config\\config.default.js",
+      "enable": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
       "useSession": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
       "bodyName": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
       "queryName": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js"
@@ -57,7 +57,7 @@
       "enable": "F:\\Node\\test_proxy_server\\config\\config.default.js",
       "value": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js"
     },
-    "domainWhiteList": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
+    "domainWhiteList": "F:\\Node\\test_proxy_server\\config\\config.local.js",
     "protocolWhiteList": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
     "defaultMiddleware": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
     "hsts": {
@@ -102,10 +102,23 @@
     "mapping": {
       ".ejs": "F:\\Node\\test_proxy_server\\config\\config.default.js"
     },
-    "cache": "F:\\Node\\test_proxy_server\\node_modules\\egg-view\\config\\config.local.js",
+    "cache": "F:\\Node\\test_proxy_server\\config\\config.local.js",
     "defaultExtension": "F:\\Node\\test_proxy_server\\node_modules\\egg-view\\config\\config.default.js",
     "defaultViewEngine": "F:\\Node\\test_proxy_server\\node_modules\\egg-view\\config\\config.default.js"
   },
+  "static": {
+    "maxAge": "F:\\Node\\test_proxy_server\\config\\config.local.js",
+    "prefix": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "logview": {
+    "dir": "F:\\Node\\test_proxy_server\\config\\config.local.js"
+  },
+  "webpack": "F:\\Node\\test_proxy_server\\config\\config.local.js",
   "session": {
     "maxAge": "F:\\Node\\test_proxy_server\\node_modules\\egg-session\\config\\config.default.js",
     "key": "F:\\Node\\test_proxy_server\\node_modules\\egg-session\\config\\config.default.js",
@@ -180,14 +193,6 @@
     "maxFiles": "F:\\Node\\test_proxy_server\\node_modules\\egg-logrotator\\config\\config.default.js",
     "rotateDuration": "F:\\Node\\test_proxy_server\\node_modules\\egg-logrotator\\config\\config.default.js",
     "maxDays": "F:\\Node\\test_proxy_server\\node_modules\\egg-logrotator\\config\\config.default.js"
-  },
-  "static": {
-    "prefix": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
-    "dir": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
-    "dynamic": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
-    "preload": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
-    "buffer": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js",
-    "maxFiles": "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\config.default.js"
   },
   "ejs": {
     "root": "F:\\Node\\test_proxy_server\\node_modules\\egg-view-ejs\\config\\config.default.js",

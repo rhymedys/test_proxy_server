@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-24 15:09:05
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2018-07-24 16:30:44
+ * @Last Modified time: 2019-05-01 19:46:22
  */
 'use strict';
 
@@ -26,5 +26,5 @@ module.exports = app => {
     },
   });
 
-  return mongoose.model('Session', SessionSchema);
+  return mongoose.model('t_session', SessionSchema);
 };

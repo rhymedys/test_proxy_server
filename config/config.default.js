@@ -8,12 +8,12 @@ module.exports = appInfo => {
     listen: {
       port: 7002,
       hostname: '127.0.0.1',
-      // path: '/var/run/egg.sock',
+      // path: 'test-proxy',
     },
   };
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1532401204088_5443';
+  config.keys = appInfo.name + '_1532401204088_0501';
 
   // add your config here
   config.middleware = [];
@@ -35,26 +35,6 @@ module.exports = appInfo => {
     },
   };
 
-
-  config.mysql = {
-    // 单数据库信息配置
-    client: {
-      // host
-      host: 'localhost',
-      // 端口号
-      port: '3306',
-      // 用户名
-      user: 'root',
-      // 密码
-      password: '123456',
-      // 数据库名
-      database: 'web-performance',
-    },
-    // 是否加载到 app 上，默认开启
-    app: true,
-    // 是否加载到 agent 上，默认关闭
-    agent: false,
-  };
   // config.middleware = [ 'checkSession' ];
 
   config.security = {
@@ -63,7 +43,6 @@ module.exports = appInfo => {
       cookieName: 'csrfToken',
       sessionName: 'csrfToken',
       headerName: 'x-csrf-token',
-      enable: true,
     },
     xframe: {
       enable: true,

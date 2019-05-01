@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-30 09:46:00
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2018-08-17 11:08:27
+ * @Last Modified time: 2019-05-01 20:11:31
  */
 
 'use strict';
@@ -35,7 +35,7 @@ class TokenService extends Service {
     if (tokenObj) {
       return this.getTokenModel()
         .findOneAndUpdate({
-          userName: tokenObj.userName,
+          userId: tokenObj.userId,
         }, tokenObj, {
           upsert: true,
         });
@@ -44,6 +44,24 @@ class TokenService extends Service {
     return generateErrorPromise('tokenObj为空');
   }
 
+
+  /**
+   * 通过用户Id查找用户token信息
+   *
+   * @param {*} userId 用户Id
+   * @return  {Promise} 查找后promise对象
+   * @memberof TokenService
+   */
+  async findByUserId(userId) {
+    if (userId) {
+      return this.getTokenModel()
+        .findOne({
+          userId: String(userId),
+        });
+    }
+
+    return generateErrorPromise('userId 为空');
+  }
 
   /**
    * 通过用户名查找token信息

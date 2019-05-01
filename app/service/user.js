@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:12:12
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2018-07-27 11:14:32
+ * @Last Modified time: 2019-05-01 20:11:21
  */
 
 'use strict';
@@ -13,51 +13,46 @@ class UserService extends Service {
 
 
   /**
-   * 分发数据操作时间
+   * 获取数据库操作对象
    *
-   * @param {*} action 数据库操作Api
-   * @param {*} options 配置
-   * @return {Promise} 数据库操作后的Promise
-   * @memberof UserService
+   * @return {Session} 数据库操作对象
+   * @memberof SessionService
    */
-  dispatch(action, options) {
-    if (action && options) {
-      return this.app.mysql[action]('web_user', options);
-    }
-    return generateErrorPromise('action options为null');
+  getUserModel() {
+    return this.ctx.model.User;
   }
 
-
   /**
-   * 通过帐户名查看账户信息
-   *
-   * @param {*} userName 账户名称
-   * @return {Promise} 数据库操作后的Promise
-   * @memberof UserService
-   */
-  async findByUserName(userName) {
-    if (userName) {
-      return await this.dispatch('get', { userName });
+ * 插入数据到数据库
+ *
+ * @param {*} userObj session对象
+ * @return {Promise} 插入后的promise对象
+ * @memberof UserService
+ */
+  async insert(userObj) {
+    if (userObj) {
+      return this.getUserModel()
+        .findOneAndUpdate({ userId: userObj.userId }, userObj, { upsert: true });
     }
-    return generateErrorPromise('userName为null');
+    return generateErrorPromise('userObj 为空');
   }
 
-
   /**
-   *创建用户
+   * 通过userId 查找用户信息
    *
-   * @param {*} userInfo 用户信息
-   * @return {Promise} 数据库操作后的Promise
+   * @param {*} userId userId 唯一
+   * @return {Promise} 查找后Promise对象
    * @memberof UserService
    */
-  async createUser(userInfo) {
-    if (userInfo && userInfo.userName) {
-      if (this.findByUserName(userInfo.userName)) {
-        return generateErrorPromise('当前用户已存在');
-      }
-      return this.dispatch('insert', userInfo);
+  async findByUserId(userId) {
+    if (userId) {
+      return this.getUserModel()
+        .findOne({
+          userId,
+        });
     }
-    return generateErrorPromise('userInfo为null');
+
+    return generateErrorPromise('userId 为空');
   }
 }
 
