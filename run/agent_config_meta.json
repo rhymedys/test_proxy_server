@@ -33,7 +33,7 @@
       "cookieName": "F:\\Node\\test_proxy_server\\config\\config.default.js",
       "sessionName": "F:\\Node\\test_proxy_server\\config\\config.default.js",
       "headerName": "F:\\Node\\test_proxy_server\\config\\config.default.js",
-      "enable": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
+      "enable": "F:\\Node\\test_proxy_server\\config\\config.default.js",
       "useSession": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
       "bodyName": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
       "queryName": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js"

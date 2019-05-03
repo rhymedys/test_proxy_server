@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-03 10:05:11
+ * @Last Modified time: 2019-05-03 19:38:18
  */
 
 'use strict';
@@ -45,7 +45,12 @@ class ProxyController extends Controller {
 
                 const fetch = async () => {
                     if (!auth) {
-                        auth = await this.login(urlArray[0], loginPath, loginMethod, loginData)
+                        auth = await this.login({
+                            appId: urlArray[0],
+                            loginPath,
+                            loginMethod,
+                            loginData
+                        })
                         await fetch()
                     } else {
                         const wholeUrl = urlArray.slice(1).join('/')
@@ -146,6 +151,7 @@ class ProxyController extends Controller {
                             }
                         )
 
+                        console.warn(apiRes.data)
                         if (apiRes.data && apiRes.data.resultCode !== 410001) {
                             response.snedOther(ctx, apiRes.data)
                         } else if (fetch.retryCount <= 6) {
