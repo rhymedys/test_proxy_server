@@ -2,18 +2,12 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-03 09:36:26
+ * @Last Modified time: 2019-05-03 10:05:11
  */
 
 'use strict';
-const fs = require('fs');
 const Controller = require('egg').Controller;
 const response = require('../../extend/response');
-const uuidv1 = require('uuid/v1');
-const tokenUtils = require('../../extend/token');
-const crypto = require('crypto');
-
-
 class ProxyController extends Controller {
 
     async get() {
@@ -25,7 +19,7 @@ class ProxyController extends Controller {
             url
         } = ctx.request;
 
-        console.log(ctx.request)
+        // console.log(ctx.request)
 
         const urlArray = url.replace('/test-proxy/proxy/', '').split('/')
 
@@ -102,7 +96,7 @@ class ProxyController extends Controller {
             header
         } = ctx.request;
 
-        console.log(ctx.request)
+        // console.log(ctx.request)
 
         const urlArray = url.replace('/test-proxy/proxy/', '').split('/')
 
@@ -196,7 +190,7 @@ class ProxyController extends Controller {
             ctx
         } = this
 
-        console.log(loginData)
+        // console.log(loginData)
 
         const loginRes = await ctx.curl(
             loginPath,
@@ -208,7 +202,7 @@ class ProxyController extends Controller {
             }
         )
 
-        console.log(loginRes)
+        // console.log(loginRes)
 
         const {
             data

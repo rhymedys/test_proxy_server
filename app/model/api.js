@@ -36,7 +36,6 @@ module.exports = app => {
         },
         loginContentType: {
             type: String,
-            required: true
         },
         domainAndProjejectPath: {
             type: String,
