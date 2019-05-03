@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-26 10:27:52
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-01 19:57:57
+ * @Last Modified time: 2019-05-03 08:21:23
  */
 
 'use strict';
@@ -50,12 +50,25 @@ function sendFail(ctx, resultDesc, resultCode = -1) {
    */
 function send(ctx, data, resultCode, resultDesc) {
   if (ctx && resultCode !== undefined) {
+
+    let dataObj = data !== undefined && data !== null ? { data } : null
+
     ctx.status = 200;
     ctx.type = 'application/json; charset=UTF-8';
     ctx.body = Object.assign({
       resultCode,
       resultDesc: resultDesc ? resultDesc : '',
-    }, data !== undefined && data !== null ? { data } : null);
+    }, dataObj);
+  }
+}
+
+function snedOther(ctx, data) {
+  if (ctx && data !== undefined) {
+
+
+    ctx.status = 200;
+    ctx.type = 'application/json; charset=UTF-8';
+    ctx.body = data;
   }
 }
 
@@ -65,5 +78,6 @@ module.exports = {
   sendFail,
   send,
   sendSuccessWithoutContent,
+  snedOther
 };
 
