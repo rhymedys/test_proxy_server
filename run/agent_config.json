@@ -216,7 +216,7 @@
       },
       "scripts": {
         "start": "ENABLE_NODE_LOG=YES egg-scripts start --port=7002 --daemon --title=test_proxy_server",
-        "stop": "egg-scripts stop --title=egg-server-LoshiServer",
+        "stop": "egg-scripts stop --title=test_proxy_server",
         "dev": "egg-bin dev",
         "debug": "egg-bin debug",
         "test": "npm run lint -- --fix && npm run test-local",

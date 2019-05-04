@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-03 19:38:18
+ * @Last Modified time: 2019-05-04 20:57:26
  */
 
 'use strict';
@@ -35,7 +35,8 @@ class ProxyController extends Controller {
                     domainAndProjejectPath,
                     loginPath,
                     loginMethod,
-                    loginData
+                    loginData,
+                    loginContentType
                 } = checkDomainAndPathInApiConfigRes
 
                 let {
@@ -49,13 +50,15 @@ class ProxyController extends Controller {
                             appId: urlArray[0],
                             loginPath,
                             loginMethod,
-                            loginData
+                            loginData,
+                            loginContentType
                         })
                         await fetch()
                     } else {
                         const wholeUrl = urlArray.slice(1).join('/')
                         const apiRes = await ctx.curl(
-                            `https://${domainAndProjejectPath}/${wholeUrl}`, {
+                            `https://${domainAndProjejectPath}/${wholeUrl}`,
+                            {
                                 headers: {
                                     Cookie: `JSESSIONID=${auth}`
                                 },
@@ -63,16 +66,21 @@ class ProxyController extends Controller {
                                 dataType: 'json',
                             }
                         )
-
-                        if (apiRes.data && apiRes.data.resultCode !== 410001) {
-                            response.snedOther(ctx, apiRes.data)
-                        } else if (fetch.retryCount <= 6) {
-                            fetch.retryCount += 1
-                            auth = undefined
-                            await fetch()
+                        
+                        if (apiRes.status !== 400) {
+                            if (apiRes.data && apiRes.data.resultCode !== 410001) {
+                                response.snedOther(ctx, apiRes.data)
+                            } else if (fetch.retryCount <= 6) {
+                                fetch.retryCount += 1
+                                auth = undefined
+                                await fetch()
+                            } else {
+                                response.sendFail(ctx, `该接口请求错误，状态码：${apiRes.status}`)
+                            }
                         } else {
-                            response.sendFail(ctx, '该借口登录配置错误')
+                            response.sendFail(ctx, '该接口不存在')
                         }
+
                     }
                 }
                 fetch.retryCount = 0
@@ -151,16 +159,20 @@ class ProxyController extends Controller {
                             }
                         )
 
-                        console.warn(apiRes.data)
-                        if (apiRes.data && apiRes.data.resultCode !== 410001) {
-                            response.snedOther(ctx, apiRes.data)
-                        } else if (fetch.retryCount <= 6) {
-                            fetch.retryCount += 1
-                            auth = undefined
-                            await fetch()
+                        if (apiRes.status !== 400) {
+                            if (apiRes.data && apiRes.data.resultCode !== 410001) {
+                                response.snedOther(ctx, apiRes.data)
+                            } else if (fetch.retryCount <= 6) {
+                                fetch.retryCount += 1
+                                auth = undefined
+                                await fetch()
+                            } else {
+                                response.sendFail(ctx, `该接口请求错误，状态码：${apiRes.status}`)
+                            }
                         } else {
-                            response.sendFail(ctx, '该借口登录配置错误')
+                            response.sendFail(ctx, '该接口不存在')
                         }
+
                     }
                 }
                 fetch.retryCount = 0
@@ -226,7 +238,7 @@ class ProxyController extends Controller {
                         auth: match
                     })
 
-                    return match[0]
+                    return match
                 }
             } else {
                 response.send(ctx, data, data.resultCode, data.resultDesc)

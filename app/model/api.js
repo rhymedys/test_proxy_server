@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-30 09:43:28
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-03 09:34:07
+ * @Last Modified time: 2019-05-04 20:02:16
  */
 
 'use strict';
@@ -14,13 +14,11 @@ module.exports = app => {
         userId: {
             type: String,
             required: true,
-            unique: true,
         },
         appId: {
             type: String,
             required: true,
             unique: true,
-
         },
         loginData: {
             type: String,
