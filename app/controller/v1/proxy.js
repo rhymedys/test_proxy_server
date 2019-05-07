@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-04 20:57:26
+ * @Last Modified time: 2019-05-07 22:40:10
  */
 
 'use strict';
@@ -106,10 +106,9 @@ class ProxyController extends Controller {
         const {
             url,
             body,
-            header
+            header,
+            
         } = ctx.request;
-
-        // console.log(ctx.request)
 
         const urlArray = url.replace('/test-proxy/proxy/', '').split('/')
 
@@ -146,7 +145,9 @@ class ProxyController extends Controller {
                         await fetch()
                     } else {
                         const wholeUrl = urlArray.slice(1).join('/')
-                        const contentType = header['content-type'] && header['content-type'] === 'application/json' ? 'json' : undefined
+
+                        console.log(header['content-type'])
+                        const contentType = header['content-type'] && header['content-type'].indexOf('application/json')>-1  ? 'json' : undefined
                         const apiRes = await ctx.curl(
                             `https://${domainAndProjejectPath}/${wholeUrl}`, {
                                 headers: {
