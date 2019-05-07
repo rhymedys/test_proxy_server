@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-30 13:40:41
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-01 16:11:33
+ * @Last Modified time: 2019-05-07 23:36:57
  */
 
 'use strict';
@@ -64,6 +64,7 @@ async function getDBTokenInfoByToken(ctx, token) {
  * @return {Promise} promise 对象
  */
 async function getDBTokenInfoByCookiesToken(ctx) {
+
   return ctx && getTokenFromCookies(ctx) && ctx.service.token.findByToken(getTokenFromCookies(ctx));
 }
 

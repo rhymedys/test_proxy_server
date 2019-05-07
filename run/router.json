@@ -46,6 +46,21 @@
     "path": "/test-proxy/api/v1/insertApi",
     "regexp": "/^\\/test-proxy\\/api\\/v1\\/insertApi(?:\\/(?=$))?$/",
     "stack": [
+      "checkTokenIsLogin",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/test-proxy/api/v1/deleteByUserIdAndAppId",
+    "regexp": "/^\\/test-proxy\\/api\\/v1\\/deleteByUserIdAndAppId(?:\\/(?=$))?$/",
+    "stack": [
+      "checkTokenIsLogin",
       "wrappedController"
     ]
   },

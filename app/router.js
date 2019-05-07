@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-24 11:16:52
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-03 08:42:45
+ * @Last Modified time: 2019-05-07 23:19:22
  */
 
 'use strict';
@@ -24,7 +24,8 @@ module.exports = app => {
   router.post('/test-proxy/api/v1/login', controller.v1.login.login);
 
   // api
-  router.post('/test-proxy/api/v1/insertApi', controller.v1.api.insert)
+  router.post('/test-proxy/api/v1/insertApi', checkTokenIsLogin, controller.v1.api.insert)
+  router.get('/test-proxy/api/v1/deleteByUserIdAndAppId', checkTokenIsLogin, controller.v1.api.deleteByUserIdAndAppId)
 
   // proxy
   router.get('/test-proxy/proxy/**', controller.v1.proxy.get)

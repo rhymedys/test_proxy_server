@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-24 16:16:48
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-03 08:32:33
+ * @Last Modified time: 2019-05-08 00:01:41
  */
 'use strict';
 const Service = require('egg').Service;
@@ -65,10 +65,39 @@ class ApiService extends Service {
 
         if (apiObj) {
             return this.getApiModel()
-                .findOneAndUpdate({ appId: apiObj.appId }, apiObj, { upsert: true });
+                .findOneAndUpdate(
+                    {
+                        appId: apiObj.appId,
+                        userId: apiObj.userId
+                    },
+                    apiObj,
+                    {
+                        upsert: true,
+                    }
+                );
         }
 
-        return generateErrorPromise('userObj 为空');
+        return generateErrorPromise('apiObj 为空');
+    }
+
+
+    /**
+     * @description 通过userId，appId删除数据
+     * @param {*} userId
+     * @param {*} appId
+     * @returns
+     * @memberof ApiService
+     */
+    async deleteByUserIdAndAppId(userId, appId) {
+        if (userId && appId) {
+            return this.getApiModel()
+                .deleteOne({
+                    userId,
+                    appId
+                });
+        }
+
+        return generateErrorPromise('userId或appId 为空');
     }
 }
 
