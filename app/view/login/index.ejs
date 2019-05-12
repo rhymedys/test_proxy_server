@@ -110,7 +110,15 @@
                             info: info
                         })
                     }).then(function (res) {
-                        console.log(res)
+                        res.text().then(data => {
+                            data = JSON.parse(data)
+                            if (data.resultCode === 0) {
+                                window.location.replace(window.location.origin + '/test-proxy/h5/content')
+                            } else {
+                                alert(data.resultDesc)
+                            }
+                        })
+
                     })
 
             });

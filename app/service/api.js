@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-24 16:16:48
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-08 00:01:41
+ * @Last Modified time: 2019-05-12 16:13:39
  */
 'use strict';
 const Service = require('egg').Service;
@@ -29,7 +29,7 @@ class ApiService extends Service {
     async findByUserId(userId) {
         if (userId) {
             return this.getApiModel()
-                .findOne({ userId });
+                .find({ userId });
         }
 
         return generateErrorPromise('userId 为空');
@@ -67,8 +67,7 @@ class ApiService extends Service {
             return this.getApiModel()
                 .findOneAndUpdate(
                     {
-                        appId: apiObj.appId,
-                        userId: apiObj.userId
+                        appId: apiObj.appId
                     },
                     apiObj,
                     {

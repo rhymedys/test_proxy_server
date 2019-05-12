@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-08-16 16:41:41
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-01 18:17:35
+ * @Last Modified time: 2019-05-12 15:28:50
  */
 
 'use strict';
@@ -18,6 +18,40 @@ class RenderController extends Controller {
         encryptKey: publicKey.replace(/\n/g, '\\n'),
       }
     );
+  }
+
+  async renderContent() {
+    const { ctx } = this;
+
+    const {
+        state,
+    } = ctx
+
+    if (state.tokenInfo.userId) {
+        const res = await ctx.service.api.findByUserId(
+            state.tokenInfo.userId
+        ).catch(e => {
+            this.logger.error(e);
+            response.sendFail(ctx);
+        });
+
+
+        if (res) {
+          await this.ctx.render(
+            'content/index.ejs',
+            {
+              initState: JSON.stringify(res)
+            }
+          );
+
+        } else {
+            response.sendFail(ctx)
+        }
+    } else {
+        response.sendFail(ctx, 'userId为空')
+    }
+
+
   }
 }
 
