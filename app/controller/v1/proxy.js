@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-07 22:40:10
+ * @Last Modified time: 2019-05-21 22:08:35
  */
 
 'use strict';
@@ -40,7 +40,8 @@ class ProxyController extends Controller {
                 } = checkDomainAndPathInApiConfigRes
 
                 let {
-                    auth
+                    auth,
+                    cookie
                 } = checkDomainAndPathInApiConfigRes
 
 
@@ -56,20 +57,25 @@ class ProxyController extends Controller {
                         await fetch()
                     } else {
                         const wholeUrl = urlArray.slice(1).join('/')
+
+                        const Cookie = cookie || `JSESSIONID=${auth}`
+
                         const apiRes = await ctx.curl(
                             `https://${domainAndProjejectPath}/${wholeUrl}`,
                             {
                                 headers: {
-                                    Cookie: `JSESSIONID=${auth}`
+                                    Cookie
                                 },
                                 method: 'GET',
                                 dataType: 'json',
                             }
                         )
-                        
+
                         if (apiRes.status !== 400) {
                             if (apiRes.data && apiRes.data.resultCode !== 410001) {
                                 response.snedOther(ctx, apiRes.data)
+                            } else if (cookie) {
+                                response.sendFail(ctx, '当前使用手动cookie登录,cookie无效请清空或重置')
                             } else if (fetch.retryCount <= 6) {
                                 fetch.retryCount += 1
                                 auth = undefined
@@ -107,7 +113,7 @@ class ProxyController extends Controller {
             url,
             body,
             header,
-            
+
         } = ctx.request;
 
         const urlArray = url.replace('/test-proxy/proxy/', '').split('/')
@@ -129,7 +135,8 @@ class ProxyController extends Controller {
                 } = checkDomainAndPathInApiConfigRes
 
                 let {
-                    auth
+                    auth,
+                    cookie
                 } = checkDomainAndPathInApiConfigRes
 
 
@@ -146,12 +153,14 @@ class ProxyController extends Controller {
                     } else {
                         const wholeUrl = urlArray.slice(1).join('/')
 
-                        console.log(header['content-type'])
-                        const contentType = header['content-type'] && header['content-type'].indexOf('application/json')>-1  ? 'json' : undefined
+                        const contentType = header['content-type'] && header['content-type'].indexOf('application/json') > -1 ? 'json' : undefined
+
+                        const Cookie = cookie || `JSESSIONID=${auth}`
+
                         const apiRes = await ctx.curl(
                             `https://${domainAndProjejectPath}/${wholeUrl}`, {
                                 headers: {
-                                    Cookie: `JSESSIONID=${auth}`
+                                    Cookie
                                 },
                                 contentType,
                                 method: 'POST',
@@ -163,6 +172,8 @@ class ProxyController extends Controller {
                         if (apiRes.status !== 400) {
                             if (apiRes.data && apiRes.data.resultCode !== 410001) {
                                 response.snedOther(ctx, apiRes.data)
+                            } else if (cookie) {
+                                response.sendFail(ctx, '当前使用手动cookie登录,cookie无效请清空或重置')
                             } else if (fetch.retryCount <= 6) {
                                 fetch.retryCount += 1
                                 auth = undefined
@@ -236,7 +247,8 @@ class ProxyController extends Controller {
 
                     await ctx.service.api.insert({
                         appId,
-                        auth: match
+                        auth: match,
+                        cookie: ''
                     })
 
                     return match

@@ -36,11 +36,14 @@
             loginPath: '登录地址',
             domainAndProjejectPath: '应用域名与项目名',
             loginData: '登录账号信息',
-            loginContentType: '登录提交数据格式'
+            loginContentType: '登录提交数据格式',
+            cookie: 'cookie'
         }
         var kDisableMap = {
             appId: true
         }
+
+        
         if (window.__INITIAL_STATE__.data.length) {
             var tabsWrapperEL = document.getElementById('tabs-wrapper')
             var tab = ''
@@ -74,7 +77,7 @@
 
         function generateForm(val) {
 
-            var elArr=  Object.keys(val)
+            var elArr = Object.keys(val)
                 .filter(function (v) {
                     return Object.keys(kLabelMap).indexOf(v) >= 0
                 })
@@ -89,30 +92,30 @@
                         kLabelMap[k] +
                         '</label>' +
                         '<div class="layui-input-block">' +
-                        '<textarea name="'+
-                            k+
+                        '<textarea name="' +
+                        k +
                         '" placeholder="请输入内容" class="layui-textarea"' +
                         disableStr +
                         '>' +
                         val[k] +
                         '</textarea>' +
                         '</div>' +
-                        '</div>' 
+                        '</div>'
                 })
 
-                elArr.unshift(
-                    '<div class="layui-form">'
-                )
-                elArr.push(
-                    '<button class="layui-btn login__content_login-btn" lay-submit lay-filter="update">修改</button>' +
-                        '</div> '
-                )
+            elArr.unshift(
+                '<div class="layui-form">'
+            )
+            elArr.push(
+                '<button class="layui-btn login__content_login-btn" lay-submit lay-filter="update">修改</button>' +
+                '</div> '
+            )
 
 
-                return elArr
+            return elArr
 
 
-                    
+
         }
 
         function onTabClick(el, currentId, arr) {
@@ -137,34 +140,34 @@
 
             //监听提交
             form.on('submit(update)', function (data) {
-             console.log(data)
+                console.log(data)
 
-             var appId = data.field.appId
+                var appId = data.field.appId
 
-             var originData = {}
-
-
-             for(var i = 0 ;i<window.__INITIAL_STATE__.data.length;i++){
-                 if(window.__INITIAL_STATE__.data[i].appId === appId){
-                     
-                    originData = window.__INITIAL_STATE__.data[i]
-                    break
-                 }
-             }
-
-             if(originData.loginData !==data.field.loginData){
-                 data.field.auth = ''
-             }
+                var originData = {}
 
 
-             var body =Object.assign(
-                            originData,
-                            data.field,
-             )
+                for (var i = 0; i < window.__INITIAL_STATE__.data.length; i++) {
+                    if (window.__INITIAL_STATE__.data[i].appId === appId) {
 
-             delete body._id
+                        originData = window.__INITIAL_STATE__.data[i]
+                        break
+                    }
+                }
 
-             fetch(
+                if (originData.loginData !== data.field.loginData) {
+                    data.field.auth = ''
+                }
+
+
+                var body = Object.assign(
+                    originData,
+                    data.field,
+                )
+
+                delete body._id
+
+                fetch(
                     '/test-proxy/api/v1/updateApi',
                     {
                         credentials: "include",
@@ -187,7 +190,7 @@
 
 
         });
-        
+
         function getCookie(name) {
             var strcookie = document.cookie;//获取cookie字符串
             var arrcookie = strcookie.split("; ");//分割

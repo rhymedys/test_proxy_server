@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-08-16 16:41:41
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-12 15:28:50
+ * @Last Modified time: 2019-05-21 22:18:04
  */
 
 'use strict';
@@ -35,7 +35,7 @@ class RenderController extends Controller {
             response.sendFail(ctx);
         });
 
-
+ 
         if (res) {
           await this.ctx.render(
             'content/index.ejs',
