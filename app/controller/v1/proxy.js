@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-21 22:08:35
+ * @Last Modified time: 2019-05-27 20:44:26
  */
 
 'use strict';
@@ -46,7 +46,7 @@ class ProxyController extends Controller {
 
 
                 const fetch = async () => {
-                    if (!auth) {
+                    if (!auth && !cookie) {
                         auth = await this.login({
                             appId: urlArray[0],
                             loginPath,
@@ -141,7 +141,7 @@ class ProxyController extends Controller {
 
 
                 const fetch = async () => {
-                    if (!auth) {
+                    if (!auth && !cookie) {
                         auth = await this.login({
                             appId: urlArray[0],
                             loginPath,
