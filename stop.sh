@@ -1,0 +1,20 @@
+#!/bin/sh
+
+export PROJECT_PATH=/usr/local/web-server/test-proxy
+
+export PATH=/root/.tnvm/versions/alinode/v4.7.0/bin:/usr/node/bin:$PATH
+
+echo "node version"
+	node -v
+echo "npm version" 
+	npm -v
+
+stop(){
+	cd $PROJECT_PATH
+	npm run stop
+}
+
+stop
+
+
+

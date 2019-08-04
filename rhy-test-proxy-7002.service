@@ -1,0 +1,15 @@
+[Unit]
+Description=rhy-test-proxy-7002
+After=network.target mongod.service 
+  
+[Service]
+Type=forking
+ExecStart=/usr/local/web-server/test-proxy/start.sh
+ExecStop=/usr/local/web-server/test-proxy/stop.sh
+PrivateTmp=true
+Nice=19
+Restart=on-failure
+RestartSec=10s
+  
+[Install]
+WantedBy=multi-user.target
