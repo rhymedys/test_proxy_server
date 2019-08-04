@@ -11,6 +11,7 @@ echo "npm version"
 
 start(){
 	cd $PROJECT_PATH
+	npm run stop
 	npm run start
 }
 
