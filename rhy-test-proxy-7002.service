@@ -9,7 +9,7 @@ ExecStop=/usr/local/web-server/test-proxy/stop.sh
 PrivateTmp=true
 Nice=19
 Restart=on-failure
-RestartSec=30s
+RestartSec=10s
   
 [Install]
 WantedBy=multi-user.target
