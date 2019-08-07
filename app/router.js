@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-24 11:16:52
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-12 16:15:28
+ * @Last Modified time: 2019-08-07 19:45:03
  */
 
 'use strict';
@@ -32,4 +32,6 @@ module.exports = app => {
   // proxy
   router.get('/test-proxy/proxy/**', controller.v1.proxy.get)
   router.post('/test-proxy/proxy/**', controller.v1.proxy.post)
+  router.get('/test-proxy/http-proxy/**', controller.v1.proxy.getByHttp)
+  router.post('/test-proxy/http-proxy/**', controller.v1.proxy.postByHttp)
 };

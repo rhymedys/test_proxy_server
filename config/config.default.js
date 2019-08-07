@@ -48,6 +48,15 @@ module.exports = appInfo => {
     xframe: {
       enable: true,
     },
+    domainWhiteList: [
+      'http://localhost:7003'
+    ]
+  };
+
+
+  config.cors = {
+    origin:'*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
 
   // config/config.prod.js

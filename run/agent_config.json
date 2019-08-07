@@ -152,6 +152,7 @@
     "mongoose": {
       "url": "",
       "options": {},
+      "plugins": [],
       "loadModel": true,
       "app": true,
       "agent": false,
@@ -178,6 +179,10 @@
       "delimiter": null,
       "strict": false
     },
+    "cors": {
+      "origin": "*",
+      "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
+    },
     "env": "local",
     "name": "test_proxy_server",
     "keys": "<String len: 36>",
@@ -193,6 +198,7 @@
       "private": true,
       "dependencies": {
         "egg": "^2.22.2",
+        "egg-cors": "^2.2.0",
         "egg-mongoose": "^3.1.1",
         "egg-mysql": "^3.0.0",
         "egg-scripts": "^2.11.0",
@@ -265,7 +271,8 @@
         "arrayLimit": 100,
         "depth": 5,
         "parameterLimit": 1000
-      }
+      },
+      "onerror": "<Function onerror>"
     },
     "logger": {
       "dir": "F:\\Node\\test_proxy_server\\logs\\test_proxy_server",
@@ -431,7 +438,7 @@
       "env": [],
       "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
       "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-schedule",
-      "version": "3.6.2"
+      "version": "3.6.4"
     },
     "multipart": {
       "enable": true,
@@ -444,7 +451,7 @@
       "env": [],
       "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
       "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-multipart",
-      "version": "2.5.0"
+      "version": "2.8.0"
     },
     "development": {
       "enable": true,
@@ -459,7 +466,7 @@
       ],
       "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
       "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-development",
-      "version": "2.4.2"
+      "version": "2.4.3"
     },
     "logrotator": {
       "enable": true,
@@ -505,7 +512,7 @@
       "env": [],
       "from": "F:\\Node\\test_proxy_server\\config\\plugin.js",
       "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-mongoose",
-      "version": "3.1.1"
+      "version": "3.2.0"
     },
     "mysql": {
       "enable": true,
@@ -530,6 +537,17 @@
       "from": "F:\\Node\\test_proxy_server\\config\\plugin.js",
       "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-view-ejs",
       "version": "2.0.0"
+    },
+    "cors": {
+      "enable": true,
+      "package": "egg-cors",
+      "name": "cors",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "F:\\Node\\test_proxy_server\\config\\plugin.js",
+      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-cors",
+      "version": "2.2.0"
     }
   }
 }

@@ -23,6 +23,7 @@
     },
     "url": "F:\\Node\\test_proxy_server\\node_modules\\egg-mongoose\\config\\config.default.js",
     "options": "F:\\Node\\test_proxy_server\\node_modules\\egg-mongoose\\config\\config.default.js",
+    "plugins": "F:\\Node\\test_proxy_server\\node_modules\\egg-mongoose\\config\\config.default.js",
     "loadModel": "F:\\Node\\test_proxy_server\\node_modules\\egg-mongoose\\config\\config.default.js",
     "app": "F:\\Node\\test_proxy_server\\node_modules\\egg-mongoose\\config\\config.default.js",
     "agent": "F:\\Node\\test_proxy_server\\node_modules\\egg-mongoose\\config\\config.default.js"
@@ -78,6 +79,10 @@
       "ipBlackList": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js",
       "checkAddress": "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\config.default.js"
     }
+  },
+  "cors": {
+    "origin": "F:\\Node\\test_proxy_server\\config\\config.default.js",
+    "allowMethods": "F:\\Node\\test_proxy_server\\config\\config.default.js"
   },
   "assets": {
     "publicPath": "F:\\Node\\test_proxy_server\\config\\config.default.js"
@@ -209,6 +214,7 @@
     "private": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js",
     "dependencies": {
       "egg": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js",
+      "egg-cors": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js",
       "egg-mongoose": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js",
       "egg-mysql": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js",
       "egg-scripts": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js",
@@ -281,7 +287,8 @@
       "arrayLimit": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js",
       "depth": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js",
       "parameterLimit": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js"
-    }
+    },
+    "onerror": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js"
   },
   "logger": {
     "dir": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\config.default.js",
