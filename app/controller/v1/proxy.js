@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-08-07 19:44:55
+ * @Last Modified time: 2019-08-08 09:25:37
  */
 
 'use strict';
@@ -68,6 +68,7 @@ class ProxyController extends Controller {
                                 },
                                 method: 'GET',
                                 dataType: 'json',
+                                timeout:10 * 1000
                             }
                         )
 
@@ -163,6 +164,7 @@ class ProxyController extends Controller {
                                 },
                                 method: 'GET',
                                 dataType: 'json',
+                                timeout:10 * 1000
                             }
                         )
 
@@ -258,7 +260,8 @@ class ProxyController extends Controller {
                                 contentType,
                                 method: 'POST',
                                 dataType: 'json',
-                                data: body
+                                data: body,
+                                timeout:10 * 1000
                             }
                         )
 
@@ -354,7 +357,8 @@ class ProxyController extends Controller {
                                 contentType,
                                 method: 'POST',
                                 dataType: 'json',
-                                data: body
+                                data: body,
+                                timeout:10 * 1000
                             }
                         )
 
