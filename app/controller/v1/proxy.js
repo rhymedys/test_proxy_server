@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-08-08 09:25:37
+ * @Last Modified time: 2019-11-11 09:50:31
  */
 
 'use strict';
@@ -16,7 +16,8 @@ class ProxyController extends Controller {
         } = this;
 
         const {
-            url
+            url,
+            query
         } = ctx.request;
 
         // console.log(ctx.request)
@@ -45,6 +46,11 @@ class ProxyController extends Controller {
                 } = checkDomainAndPathInApiConfigRes
 
 
+                if (query.token) {
+                    cookie = `JSESSIONID=${query.token}`
+                }
+
+
                 const fetch = async () => {
                     if (!auth && !cookie) {
                         auth = await this.login({
@@ -61,14 +67,13 @@ class ProxyController extends Controller {
                         const Cookie = cookie || `JSESSIONID=${auth}`
 
                         const apiRes = await ctx.curl(
-                            `https://${domainAndProjejectPath}/${wholeUrl}`,
-                            {
+                            `https://${domainAndProjejectPath}/${wholeUrl}`, {
                                 headers: {
                                     Cookie
                                 },
                                 method: 'GET',
                                 dataType: 'json',
-                                timeout:10 * 1000
+                                timeout: 10 * 1000
                             }
                         )
 
@@ -112,7 +117,8 @@ class ProxyController extends Controller {
         } = this;
 
         const {
-            url
+            url,
+            query
         } = ctx.request;
 
         // console.log(ctx.request)
@@ -141,6 +147,9 @@ class ProxyController extends Controller {
                 } = checkDomainAndPathInApiConfigRes
 
 
+                if (query.token) {
+                    cookie = `JSESSIONID=${query.token}`
+                }
                 const fetch = async () => {
                     if (!auth && !cookie) {
                         auth = await this.login({
@@ -157,14 +166,13 @@ class ProxyController extends Controller {
                         const Cookie = cookie || `JSESSIONID=${auth}`
 
                         const apiRes = await ctx.curl(
-                            `http://${domainAndProjejectPath}/${wholeUrl}`,
-                            {
+                            `http://${domainAndProjejectPath}/${wholeUrl}`, {
                                 headers: {
                                     Cookie
                                 },
                                 method: 'GET',
                                 dataType: 'json',
-                                timeout:10 * 1000
+                                timeout: 10 * 1000
                             }
                         )
 
@@ -208,7 +216,7 @@ class ProxyController extends Controller {
             url,
             body,
             header,
-
+            query
         } = ctx.request;
 
         const urlArray = url.replace('/test-proxy/proxy/', '').split('/')
@@ -234,7 +242,10 @@ class ProxyController extends Controller {
                     cookie
                 } = checkDomainAndPathInApiConfigRes
 
-
+                if (query.token) {
+                    cookie = `JSESSIONID=${query.token}`
+                }
+                
                 const fetch = async () => {
                     if (!auth && !cookie) {
                         auth = await this.login({
@@ -261,7 +272,7 @@ class ProxyController extends Controller {
                                 method: 'POST',
                                 dataType: 'json',
                                 data: body,
-                                timeout:10 * 1000
+                                timeout: 10 * 1000
                             }
                         )
 
@@ -305,7 +316,7 @@ class ProxyController extends Controller {
             url,
             body,
             header,
-
+            query
         } = ctx.request;
 
         const urlArray = url.replace('/test-proxy/http-proxy/', '').split('/')
@@ -332,6 +343,12 @@ class ProxyController extends Controller {
                 } = checkDomainAndPathInApiConfigRes
 
 
+
+                if (query.token) {
+                    cookie = `JSESSIONID=${query.token}`
+                }
+
+                
                 const fetch = async () => {
                     if (!auth && !cookie) {
                         auth = await this.login({
@@ -358,7 +375,7 @@ class ProxyController extends Controller {
                                 method: 'POST',
                                 dataType: 'json',
                                 data: body,
-                                timeout:10 * 1000
+                                timeout: 10 * 1000
                             }
                         )
 
@@ -415,8 +432,7 @@ class ProxyController extends Controller {
         // console.log(loginData)
 
         const loginRes = await ctx.curl(
-            loginPath,
-            {
+            loginPath, {
                 method: loginMethod,
                 dataType: 'json',
                 contentType: loginContentType,
