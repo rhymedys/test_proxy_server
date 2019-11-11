@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-11-11 09:50:31
+ * @Last Modified time: 2019-11-11 09:55:56
  */
 
 'use strict';
@@ -17,7 +17,7 @@ class ProxyController extends Controller {
 
         const {
             url,
-            query
+            header
         } = ctx.request;
 
         // console.log(ctx.request)
@@ -46,8 +46,8 @@ class ProxyController extends Controller {
                 } = checkDomainAndPathInApiConfigRes
 
 
-                if (query.token) {
-                    cookie = `JSESSIONID=${query.token}`
+                if (header.ptoken) {
+                    cookie = header.ptoken
                 }
 
 
@@ -118,7 +118,7 @@ class ProxyController extends Controller {
 
         const {
             url,
-            query
+            header
         } = ctx.request;
 
         // console.log(ctx.request)
@@ -147,8 +147,8 @@ class ProxyController extends Controller {
                 } = checkDomainAndPathInApiConfigRes
 
 
-                if (query.token) {
-                    cookie = `JSESSIONID=${query.token}`
+                if (header.ptoken) {
+                    cookie = header.ptoken
                 }
                 const fetch = async () => {
                     if (!auth && !cookie) {
@@ -216,7 +216,6 @@ class ProxyController extends Controller {
             url,
             body,
             header,
-            query
         } = ctx.request;
 
         const urlArray = url.replace('/test-proxy/proxy/', '').split('/')
@@ -242,8 +241,8 @@ class ProxyController extends Controller {
                     cookie
                 } = checkDomainAndPathInApiConfigRes
 
-                if (query.token) {
-                    cookie = `JSESSIONID=${query.token}`
+                if (header.ptoken) {
+                    cookie = header.ptoken
                 }
                 
                 const fetch = async () => {
@@ -316,7 +315,6 @@ class ProxyController extends Controller {
             url,
             body,
             header,
-            query
         } = ctx.request;
 
         const urlArray = url.replace('/test-proxy/http-proxy/', '').split('/')
@@ -343,9 +341,8 @@ class ProxyController extends Controller {
                 } = checkDomainAndPathInApiConfigRes
 
 
-
-                if (query.token) {
-                    cookie = `JSESSIONID=${query.token}`
+                if (header.ptoken) {
+                    cookie = header.ptoken
                 }
 
                 
