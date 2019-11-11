@@ -85,29 +85,29 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "F:\\Node\\test_proxy_server\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-session\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-security\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-jsonp\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-onerror\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-i18n\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-watcher\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-schedule\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-multipart\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-development\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-logrotator\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-static\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-view\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-mongoose\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-mysql\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-view-ejs\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg-cors\\config\\locales",
-        "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\locales",
-        "F:\\Node\\test_proxy_server\\config\\locales"
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-session\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-security\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-jsonp\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-onerror\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-i18n\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-watcher\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-schedule\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-multipart\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-development\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-logrotator\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-static\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-view\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-mongoose\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-mysql\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-view-ejs\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-cors\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\locales",
+        "F:\\Node\\rhy-test-proxy-server\\config\\locales"
       ],
       "queryField": "locale",
       "cookieField": "locale",
@@ -118,8 +118,8 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "F:\\Node\\test_proxy_server\\node_modules\\egg-watcher\\lib\\event-sources\\default",
-        "development": "F:\\Node\\test_proxy_server\\node_modules\\egg-watcher\\lib\\event-sources\\development"
+        "default": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-watcher\\lib\\event-sources\\default",
+        "development": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-watcher\\lib\\event-sources\\development"
       }
     },
     "customLogger": {
@@ -142,7 +142,7 @@
       "files": 10,
       "fileExtensions": [],
       "whitelist": null,
-      "tmpdir": "C:\\Users\\ADMINI\\x7e1\\AppData\\Local\\Temp\\egg-multipart-tmp\\test_proxy_server",
+      "tmpdir": "C:\\Users\\RHYMED\\x7e1.RHY\\AppData\\Local\\Temp\\egg-multipart-tmp\\test_proxy_server",
       "cleanSchedule": {
         "cron": "0 30 4 * * *"
       }
@@ -165,7 +165,7 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "F:\\Node\\test_proxy_server\\app\\public",
+      "dir": "F:\\Node\\rhy-test-proxy-server\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
@@ -174,7 +174,7 @@
     },
     "view": {
       "root": [
-        "F:\\Node\\test_proxy_server\\app\\view"
+        "F:\\Node\\rhy-test-proxy-server\\app\\view"
       ],
       "cache": false,
       "defaultExtension": ".html",
@@ -206,7 +206,7 @@
       "agent": false
     },
     "ejs": {
-      "root": "F:\\Node\\test_proxy_server\\app\\view",
+      "root": "F:\\Node\\rhy-test-proxy-server\\app\\view",
       "cache": false,
       "debug": false,
       "compileDebug": true,
@@ -214,7 +214,7 @@
       "strict": false
     },
     "cors": {
-      "origin": "*",
+      "origin": "http://localhost:7003",
       "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
     },
     "env": "local",
@@ -276,9 +276,9 @@
       "author": "rhymedys<rhymedys@gmail.com>",
       "license": "MIT"
     },
-    "baseDir": "F:\\Node\\test_proxy_server",
-    "HOME": "C:\\Users\\Administrator",
-    "rundir": "F:\\Node\\test_proxy_server\\run",
+    "baseDir": "F:\\Node\\rhy-test-proxy-server",
+    "HOME": "C:\\Users\\Rhymedys.RHYMEDYS-CC",
+    "rundir": "F:\\Node\\rhy-test-proxy-server\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -309,7 +309,7 @@
       "returnRawBody": true
     },
     "logger": {
-      "dir": "F:\\Node\\test_proxy_server\\logs\\test_proxy_server",
+      "dir": "F:\\Node\\rhy-test-proxy-server\\logs\\test_proxy_server",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -389,7 +389,7 @@
       "publicPath": "/public/"
     },
     "logview": {
-      "dir": "F:\\Node\\test_proxy_server\\logs"
+      "dir": "F:\\Node\\rhy-test-proxy-server\\logs"
     },
     "webpack": {},
     "coreMiddlewares": "~config~coreMiddleware",
@@ -416,8 +416,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-session",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -429,8 +429,8 @@
         "session"
       ],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-security",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-security",
       "version": "2.5.0"
     },
     "jsonp": {
@@ -442,8 +442,8 @@
         "security"
       ],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-jsonp",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -455,8 +455,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-onerror",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -466,8 +466,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-i18n",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-i18n",
       "version": "2.1.1"
     },
     "watcher": {
@@ -477,8 +477,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-watcher",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -488,8 +488,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-schedule",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-schedule",
       "version": "3.6.4"
     },
     "multipart": {
@@ -501,8 +501,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-multipart",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-multipart",
       "version": "2.8.0"
     },
     "development": {
@@ -516,8 +516,8 @@
       "env": [
         "local"
       ],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-development",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-development",
       "version": "2.4.3"
     },
     "logrotator": {
@@ -529,8 +529,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-logrotator",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-logrotator",
       "version": "3.1.0"
     },
     "static": {
@@ -540,8 +540,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-static",
+      "from": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-static",
       "version": "2.2.0"
     },
     "view": {
@@ -550,9 +550,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\config\\plugin.js",
+      "from": "F:\\Node\\rhy-test-proxy-server\\config\\plugin.js",
       "package": "egg-view",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-view",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-view",
       "version": "2.1.2"
     },
     "mongoose": {
@@ -562,8 +562,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-mongoose",
+      "from": "F:\\Node\\rhy-test-proxy-server\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-mongoose",
       "version": "3.2.0"
     },
     "mysql": {
@@ -573,8 +573,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-mysql",
+      "from": "F:\\Node\\rhy-test-proxy-server\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-mysql",
       "version": "3.0.0"
     },
     "ejs": {
@@ -586,8 +586,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-view-ejs",
+      "from": "F:\\Node\\rhy-test-proxy-server\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-view-ejs",
       "version": "2.0.0"
     },
     "cors": {
@@ -597,8 +597,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\Node\\test_proxy_server\\config\\plugin.js",
-      "path": "F:\\Node\\test_proxy_server\\node_modules\\egg-cors",
+      "from": "F:\\Node\\rhy-test-proxy-server\\config\\plugin.js",
+      "path": "F:\\Node\\rhy-test-proxy-server\\node_modules\\egg-cors",
       "version": "2.2.0"
     }
   }
