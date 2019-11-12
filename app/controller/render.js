@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-08-16 16:41:41
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-05-21 22:18:04
+ * @Last Modified time: 2019-11-12 09:52:19
  */
 
 'use strict';
@@ -12,10 +12,12 @@ const publicKey = fs.readFileSync('./rsa_public_key.pem', 'utf8');
 class RenderController extends Controller {
 
   async renderLogin() {
+
+
     await this.ctx.render(
       'login/index.ejs',
       {
-        encryptKey: publicKey.replace(/\n/g, '\\n'),
+        encryptKey: publicKey.replace(/\r\n/g,'\\n'),
       }
     );
   }
