@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-24 11:16:52
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-08-07 19:45:03
+ * @Last Modified time: 2020-09-17 15:34:37
  */
 
 'use strict';
@@ -29,9 +29,17 @@ module.exports = app => {
   router.post('/test-proxy/api/v1/updateApi', checkTokenIsLogin, controller.v1.api.update)
   router.get('/test-proxy/api/v1/deleteByUserIdAndAppId', checkTokenIsLogin, controller.v1.api.deleteByUserIdAndAppId)
 
+  
   // proxy
   router.get('/test-proxy/proxy/**', controller.v1.proxy.get)
   router.post('/test-proxy/proxy/**', controller.v1.proxy.post)
   router.get('/test-proxy/http-proxy/**', controller.v1.proxy.getByHttp)
   router.post('/test-proxy/http-proxy/**', controller.v1.proxy.postByHttp)
+
+
+  router.get('/recommandapi/updatewx', controller.wxrecommand.index.update)
+  router.get('/recommandapi/findByDataId', controller.wxrecommand.index.findByDataId)
+
+
+  
 };
