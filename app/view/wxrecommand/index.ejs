@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://joke.zzmingfei.cn/ -->
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title></title>
+	<link rel="stylesheet" href="http://www.rhymedys.com/lib/wxrecommand/main/main_files/app.css"
+		tppabs="http://www.rhymedys.com/lib/wxrecommand/main/main_files/app.css">
+	<style type="text/css" id="1376544000"></style>
+	<script>
+		var getQueryString = function (v) {
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			for (var i = 0; i < vars.length; i++) {
+				var pair = vars[i].split("=");
+				if (pair[0] == v) { return pair[1]; }
+			}
+			return (false);
+		}
+
+		window.getQueryString = getQueryString
+
+
+		window.wxid = getQueryString('wxid')
+	</script>
+</head>
+
+<body class="success">
+	<div class="page-wrap" id="wrapper">
+		<div class="info"> <img src="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto1.jpg"
+				tppabs="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto1.jpg" alt="注册成功"> </div>
+		<h3 class="entry-hd">客服微信 <span id="copyMy"></span> </h3>
+		<div class="btns">
+			<button class="btn" onclick="copyFn()">点击复制微信号</button>
+		</div>
+		<script>
+			function copyFn() {
+				var val = document.getElementById('copyMy');
+				window.getSelection().selectAllChildren(val);
+
+				console.log(val)
+				document.execCommand("Copy"); window.location.replace("weixin://");
+				alert("复制成功");
+			}
+		</script>
+		<div class="info"> <img src="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto2.jpg"
+				tppabs="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto2.jpg" alt="注册成功"> </div>
+		<h3 class="entry-hd">客服微信 <span id="copyMy1"></span> </h3>
+		<div class="btns">
+			<button class="btn" onclick="copyFn()">点击复制微信号</button>
+		</div>
+		<div class="info"> <img src="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto3.jpg"
+				tppabs="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto3.jpg" alt="注册成功"> </div>
+		<h3 class="entry-hd">客服微信 <span id="copyMy2"></span> </h3>
+		<div class="btns">
+			<button class="btn" onclick="copyFn()">点击复制微信号</button>
+		</div>
+		<div class="info"> <img src="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto4.jpg"
+				tppabs="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto4.jpg" alt="注册成功"> </div>
+		<h3 class="entry-hd">客服微信 <span id="copyMy3"></span> </h3>
+		<div class="btns">
+			<button class="btn" onclick="copyFn()">点击复制微信号</button>
+		</div>
+		<div class="info"> <img src="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto5.jpg"
+				tppabs="http://www.rhymedys.com/lib/wxrecommand/main/main_files/poto5.jpg" alt="注册成功"> </div>
+		<h3 class="entry-hd">客服微信 <span id="copyMy4"></span> </h3>
+		<img src="http://www.rhymedys.com/lib/wxrecommand/main/main_files/wx.jpg"
+			tppabs="http://www.rhymedys.com/lib/wxrecommand/main/main_files/wx.jpg" width="200" height="200"
+			style="display: block; margin: 0 auto;">
+		<div class="btns">
+			<button class="btn" onclick="copyFn()">点击复制微信号</button>
+		</div>
+		<div>
+			<div class="detail">
+				<p>咨询客服微信号，在线帮你在线安装微信聊天记录同步接收软件。</p>
+			</div>
+		</div>
+	</div>
+
+    <script>
+        
+
+        window.__INITIAL_STATE__ = {
+            data:<%- initState %>
+        }
+
+	document.getElementById('copyMy') .innerHTML =
+	document.getElementById('copyMy4') .innerHTML =
+document.getElementById('copyMy3').innerHTML=
+document.getElementById('copyMy2').innerHTML  =
+		document.getElementById('copyMy1').innerHTML = window.__INITIAL_STATE__.data.wx
+
+	</script>
+</body>
+
+</html>

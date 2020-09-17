@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-08-16 16:41:41
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-11-12 09:52:19
+ * @Last Modified time: 2020-09-17 16:21:16
  */
 
 'use strict';
@@ -15,43 +15,88 @@ class RenderController extends Controller {
 
 
     await this.ctx.render(
-      'login/index.ejs',
-      {
-        encryptKey: publicKey.replace(/\r\n/g,'\\n'),
+      'login/index.ejs', {
+        encryptKey: publicKey.replace(/\r\n/g, '\\n'),
       }
     );
   }
 
   async renderContent() {
-    const { ctx } = this;
+    const {
+      ctx
+    } = this;
 
     const {
-        state,
+      state,
     } = ctx
 
     if (state.tokenInfo.userId) {
-        const res = await ctx.service.api.findByUserId(
-            state.tokenInfo.userId
-        ).catch(e => {
-            this.logger.error(e);
-            response.sendFail(ctx);
-        });
+      const res = await ctx.service.api.findByUserId(
+        state.tokenInfo.userId
+      ).catch(e => {
+        this.logger.error(e);
+        response.sendFail(ctx);
+      });
+
+
+      if (res) {
+        await this.ctx.render(
+          'content/index.ejs', {
+            initState: JSON.stringify(res)
+          }
+        );
+
+      } else {
+        response.sendFail(ctx)
+      }
+    } else {
+      response.sendFail(ctx, 'userId为空')
+    }
+
+
+
+
+
+  }
+
+  async renderRecomandWx() {
+
+
+    const {
+      ctx
+    } = this;
+
+    const res = await ctx.service.wxrecommand.findByDataId(
+      '1'
+    ).catch(e => {
+      this.logger.error(e);
+      response.sendFail(ctx);
+    });
+
+
+    if (res) {
+      await this.ctx.render(
+        'wxrecommand/index.ejs', {
+          initState: JSON.stringify(res)
+        }
+      );
+
+    } else {
+      response.sendFail(ctx)
+    }
+
+
+  }
+  async renderChangewxrecommandId() {
+
 
  
-        if (res) {
-          await this.ctx.render(
-            'content/index.ejs',
-            {
-              initState: JSON.stringify(res)
-            }
-          );
 
-        } else {
-            response.sendFail(ctx)
+      await this.ctx.render(
+        'changewxrecommandid/index.ejs', {
         }
-    } else {
-        response.sendFail(ctx, 'userId为空')
-    }
+      );
+
 
 
   }
