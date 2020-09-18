@@ -2,13 +2,17 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-08-16 16:41:41
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2020-09-17 16:21:16
+ * @Last Modified time: 2020-09-18 10:01:06
  */
 
 'use strict';
 const fs = require('fs');
 const Controller = require('egg').Controller;
 const publicKey = fs.readFileSync('./rsa_public_key.pem', 'utf8');
+
+const response = require('../extend/response');
+
+
 class RenderController extends Controller {
 
   async renderLogin() {
@@ -29,6 +33,7 @@ class RenderController extends Controller {
     const {
       state,
     } = ctx
+
 
     if (state.tokenInfo.userId) {
       const res = await ctx.service.api.findByUserId(
@@ -66,8 +71,14 @@ class RenderController extends Controller {
       ctx
     } = this;
 
+
+    // console.log(ctx.request.host)
+    this.logger.error(ctx.request.host)
+    // this.logger.error(ctx.request)
+    const dataId = ctx.request.host
+
     const res = await ctx.service.wxrecommand.findByDataId(
-      '1'
+      dataId
     ).catch(e => {
       this.logger.error(e);
       response.sendFail(ctx);
@@ -80,22 +91,30 @@ class RenderController extends Controller {
           initState: JSON.stringify(res)
         }
       );
-
     } else {
-      response.sendFail(ctx)
+      await ctx.service.wxrecommand.update({
+        dataId,
+        wx: '1'
+      }).catch(e => {
+        this.logger.error(e);
+        response.sendFail(ctx);
+      })
+
+
+      this.renderRecomandWx.call(this)
     }
 
 
   }
+
+
+
   async renderChangewxrecommandId() {
 
 
- 
-
-      await this.ctx.render(
-        'changewxrecommandid/index.ejs', {
-        }
-      );
+    await this.ctx.render(
+      'changewxrecommandid/index.ejs', {}
+    );
 
 
 

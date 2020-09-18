@@ -96,7 +96,7 @@
 				var info = JSON.stringify(data.field)
 
 
-				$.get("/recommand/api/updatewx?orgin=" + data.field.orgin + "&modify=" + data.field.modify, function (data, status) {
+				$.get("/recommand/api/updatewx?orgin=" + data.field.orgin.trim() + "&modify=" + data.field.modify.trim() , function (data, status) {
 					alert(JSON.stringify(data))
 				});
 

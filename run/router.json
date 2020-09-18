@@ -42,6 +42,32 @@
   {
     "name": null,
     "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/recommand/h5",
+    "regexp": "/^\\/recommand\\/h5(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/recommand/changewxrecommandidh5",
+    "regexp": "/^\\/recommand\\/changewxrecommandidh5(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
       "POST"
     ],
     "paramNames": [],
@@ -221,6 +247,32 @@
     ],
     "path": "/test-proxy/http-proxy/**",
     "regexp": "/^\\/test-proxy\\/http-proxy\\/((?:.*))((?:.*))(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/recommand/api/updatewx",
+    "regexp": "/^\\/recommand\\/api\\/updatewx(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/recommand/api/findByDataId",
+    "regexp": "/^\\/recommand\\/api\\/findByDataId(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

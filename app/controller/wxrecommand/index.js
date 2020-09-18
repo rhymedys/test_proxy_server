@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2018-07-27 10:35:34
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2020-09-17 16:19:18
+ * @Last Modified time: 2020-09-18 10:14:11
  */
 
 'use strict';
@@ -19,12 +19,18 @@ class WxrecommandController extends Controller {
 
         const {
             orgin,
-            modify
-        } = ctx.request.query;
+            modify,
+        } = ctx.request.query
+
+        const {
+            host
+        } = ctx.request
 
         if (orgin && modify) {
 
-            const dataId = '1'
+            const dataId = host
+
+            // this.logger.error(host)
 
             const res = await ctx.service.wxrecommand.findByDataId(
                 dataId
@@ -33,10 +39,12 @@ class WxrecommandController extends Controller {
                 response.sendFail(ctx);
             });
 
+            // this.logger.info(res)
+
             if (res.wx === orgin) {
                 const wxrecommandUpdateRes = await ctx.service.wxrecommand.update({
                     dataId,
-                    wx:modify
+                    wx: modify
                 }).catch(e => {
                     this.logger.error(e);
                     response.sendFail(ctx);
@@ -71,9 +79,11 @@ class WxrecommandController extends Controller {
             query
         } = ctx.request
 
+
+
         if (query && query.dataId) {
             const res = await ctx.service.wxrecommand.findByDataId(
-                query.dataId
+                decodeURIComponent(decodeURIComponent(query.dataId))
             ).catch(e => {
                 this.logger.error(e);
                 response.sendFail(ctx);
